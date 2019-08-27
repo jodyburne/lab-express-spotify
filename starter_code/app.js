@@ -56,13 +56,25 @@ app.get("/artists", (req, res, next) => {
 
 app.get('/albums/:id', (req, res, next) => {
   let artist = req.params.id
+  Promise.all([
     spotifyApi
-    .getArtistAlbums(artist)
-    .then(data => {
-console.log('ALBUMS', data.body.items) 
+    .getArtistAlbums(artist),
+    spotifyApi
+    .getArtist(artist)
+  ])
+    .then(([albums, artist]) => {
+let resultsArr = albums.body.items
+let albumsArr = []
+for (let i = 0; i < resultsArr.length; i++){
+  if (resultsArr[i].album_group === 'album' && resultsArr[i].available_markets.includes('GB') ) {
+
+    albumsArr.push(resultsArr[i])
+  }
+}
+
 res.render('albums', {
-    artist: data.body.items[0].artists[0].name,
-    albums: data.body.items
+    artist: artist.body.name,
+    albums: albumsArr
 })
    })
    .catch(err => {
