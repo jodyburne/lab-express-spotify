@@ -1,0 +1,17 @@
+
+<h1 class='heading'>Your search results for "{{userInput}}"</h1>
+<div class='artists-main'>
+{{#each artists}}
+  <div class='artistCard' >
+    {{#if this.images.[0].url}}
+    <img src="{{this.images.[0].url}}" alt="" >
+    {{else}}
+    <img src='https://hafiprocessjournal.files.wordpress.com/2014/10/a2ce1-guardiamoci_occhi025.jpg?w=400&h=397' alt=''>
+    {{/if}}
+    <div class='artistCardLower'>
+    <h3 class='artistName'>{{this.name}}</h3>    
+    <button class='btn-peach'><a href="/albums/{{this.id}}">View Albums</a></button>
+    </div>
+  </div>
+{{/each}}
+</div>

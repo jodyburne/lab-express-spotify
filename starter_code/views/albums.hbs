@@ -1,0 +1,17 @@
+
+<h1 class='heading'>Album results for "{{artist}}"</h1>
+<div class='artists-main'>
+{{#each albums}}
+  <div class='artistCard' >
+    {{#if this.images.[0].url}}
+    <img src="{{this.images.[0].url}}" alt="" >
+    {{else}}
+    <img src='https://hafiprocessjournal.files.wordpress.com/2014/10/a2ce1-guardiamoci_occhi025.jpg?w=400&h=397' alt=''>
+    {{/if}}
+    <div class='artistCardLower'>
+    <h3 class='artistName'>{{this.name}}</h3>    
+    <button class='btn-peach'>View Tracks</button>
+    </div>
+  </div>
+{{/each}}
+</div>

@@ -1,0 +1,94 @@
+/* object fit --- makes pictures crop instead distorting when 
+given specific height and width */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: gainsboro
+}
+.index-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('https://www.ebuyer.com/blog/wp-content/uploads/2017/09/crowd-at-gig.jpg');
+    background-repeat:  no-repeat;
+    background-size:cover;
+    
+}
+
+.index-main form {
+    background-color: rgba(123,104,238, 0.5);
+    width: 55vw;
+    height: 35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;   
+    border-radius: 2px;
+     }
+
+
+
+.artistCard img {
+    object-fit: cover;
+    height: 80%;
+    width: 100%;
+}
+
+.artists-main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center
+}
+.artistCard {
+    width: 25vw;
+    max-height: 70vh;
+    margin: 2%;
+    color: white;
+    text-align: center;
+    background-color: rgb(72, 72, 72);
+
+ 
+}
+
+.artistCardLower {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center ;
+    justify-content: space-around;
+    height: 20%;
+    background-color: rgb(72, 72, 72);
+
+
+}
+
+.heading {
+    text-align: center;
+    color: deeppink
+}
+
+.artistName {
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+    margin: 1%
+}
+
+
+
+.btn-peach {
+    color: white;
+    background-color: deeppink;
+    padding: 2% 4%;
+    border: none;
+    width: 50%;
+    margin: 1%
+}
+
+.index-searchbar {
+    width: 70%;
+    height: 20%;
+    border-radius: 3px;
+    border:none
+}
