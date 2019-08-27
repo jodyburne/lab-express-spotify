@@ -82,6 +82,33 @@ res.render('albums', {
    })
 })
 
+app.get('/tracks/:id', (req, res, next) => {
+  let album = req.params.id
+  Promise.all([
+  spotifyApi
+  .getAlbumTracks(album),
+  spotifyApi
+  .getAlbum(album)
+  ])
+  .then(([tracks, album]) => {
+    console.log('DEBUGGING IS FUN ', album.body.artists[0].name)
+   
+    res.render('tracks', 
+    {
+      tracks: tracks.body.items,
+      pic: album.body.images[1].url,
+      album: album.body.name,
+      artists: album.body.artists,
+      year: album.body.release_date,
+      label: album.body.label,
+
+    }
+    )
+  })
+  .catch(err => {
+    console.log('error alert guys: ', err)
+  })
+})
 
 app.listen(3000, () =>
   console.log("My Spotify project running on port 3000 🎧 🥁 🎸 🔊")

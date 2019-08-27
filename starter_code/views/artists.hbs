@@ -1,5 +1,7 @@
 
+{{#if artists}}
 <h1 class='heading'>Your search results for "{{userInput}}"</h1>
+
 <div class='artists-main'>
 {{#each artists}}
   <div class='artistCard' >
@@ -14,4 +16,8 @@
     </div>
   </div>
 {{/each}}
+
 </div>
+{{else}}
+<h1 class='heading'>Your search for "{{userInput}}" was fruitless</h1>
+{{/if}}
